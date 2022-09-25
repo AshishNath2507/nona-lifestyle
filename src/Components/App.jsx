@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import Search from "./Search";
 import Footer from "./Footer";
 import CreateArea from "./CreateArea";
 import { db } from "../firestore-config";
@@ -34,9 +35,16 @@ function App() {
 
   return (
     <div>
-      <Header notes={notes} setNotes={setNotes}/>
-      <CreateArea tempUuid={tempUuid} isEdit={isEdit} setIsEdit={setIsEdit} setTempUuid={setTempUuid} setNotes={setNotes}/>
-      
+      <Header />
+      <Search notes={notes} setNotes={setNotes} />
+      <CreateArea
+        tempUuid={tempUuid}
+        isEdit={isEdit}
+        setIsEdit={setIsEdit}
+        setTempUuid={setTempUuid}
+        setNotes={setNotes}
+      />
+
       {notes.map((noteItems, index) => {
         return (
           <div className="note" key={index} id={index}>
